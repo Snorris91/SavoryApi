@@ -1,0 +1,1 @@
+from .cuisine import Cuisine
