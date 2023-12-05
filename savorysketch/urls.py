@@ -15,8 +15,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from rest_framework import routers
+from rest_framework.routers import DefaultRouter
+from SavorySketch_api.views import UserViewSet, CuisineViewSet, IngredientViewSet, MeasurementViewSet
+
+
+router = routers.DefaultRouter(trailing_slash=False)
+router.register(r'cuisines', CuisineViewSet, 'cuisine')
+router.register(r'ingredients', IngredientViewSet, 'ingredient')
+router.register(r'measurements', MeasurementViewSet, 'measurement')
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('', include(router.urls)),
+    path('login', UserViewSet.as_view({'post': 'user_login'}), name='login'),
+    path('register', UserViewSet.as_view({'post': 'register_account'}), name='register')
 ]
