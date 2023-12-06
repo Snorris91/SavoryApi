@@ -30,9 +30,14 @@ class SavoryUserSerializer(serializers.ModelSerializer):
         model = SavoryUser
         fields = ['id', 'user', 'profile_img', 'biography', 'created_on']
         
+class SimpleSavoryUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SavoryUser
+        fields = ['id', 'user', 'profile_img']
+
 class SavoryUserView(ViewSet):
     
-    def list(self,request):
+    def list(self, request):
         savory_users = SavoryUser.objects.all()
         serializer = SavoryUserSerializer( savory_users, many=True, context={'request': request})
         return Response(serializer.data)

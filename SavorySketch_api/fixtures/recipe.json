@@ -1,0 +1,44 @@
+[
+    {
+        "model": "SavorySketch_api.recipe",
+        "pk": 1,
+        "fields": {
+          "user": 1,
+          "cuisine": 1,
+          "title": "Chicken Adobo",
+          "description": "Mouth-watering Chicken",
+          "image": "https://lh3.googleusercontent.com/JvsV9scoVWCXzFiKeCidalwOLCxpEw8HAPO1i1IJMPzel0vMSkKWC6b3pd-Xpbez7Zyo_aV6kkm3piGT3yVp7uM=w320-h320-c-rw-v1-e365",
+          "publication_date": "2023-10-11",
+          "directions": "Start by marinating the chicken in soy sauce and garlic. The garlic needs to be crushed for best results. This process takes 1 hour to 12 hours depending on how flavorful you want the dish to be. Sometimes marinating for an hour is not enough. I think that 3 hours is optimal. The chicken absorbs most of the flavors from the soy sauce and garlic during this step. It is noticeable when you taste the dish after cooking. Note that it is also possible to include the vinegar in this step. The next step is to separate the chicken from the marinade. Make sure to set the marinade aside because it will be used later on. Pan-fry the chicken pieces for 1 to 1 ½ minutes per side. This will partially cook the outer part. It also makes the skin tough enough to withstand stewing later. This means that it will remain intact, which is nice for presentation. Pour marinade into the pot and add water. Let boil. The bay leaves and whole peppercorn can now be added. The process takes 20 to 25 minutes depending on the quality of the chicken. However, feel free to cook longer in low heat for a super tender chicken adobo. Add the vinegar. This can also be added as a part of the marinade. Let it cook for 10 minutes and then add sugar and salt. I only add salt if needed. It is important to taste your dish before adding seasonings. Filipino chicken adobo can be served with or without sauce. If you like it very tasty then continue to cook on an uncovered cooking pot until the liquid completely evaporates.",
+          "number_of_likes": 200
+        }
+    },
+    {
+        "model": "SavorySketch_api.recipe",
+        "pk": 2,
+        "fields": {
+          "user": 1,
+          "cuisine": 1,
+          "title": "Baked Lemon Pepper Chicken",
+          "description": "Mouth-watering Baked Chicken",
+          "image": "https://lh3.googleusercontent.com/IJq_0VsgEVaBI0-L0iFgNLJtfqAPDWJ6EqZyjxAiptb9QjKTZG4UXHQT9QNSpauu4KNgIibqIXJVtu7yMn-cND4=w640-h640-c-rw-v1-e365",
+          "publication_date": "2023-10-11",
+          "directions": "Preheat oven for 425F. Clean chicken with warm water, lemon and vinegar. You can see how I clean chicken here. Drain the water, set the chicken on a baking tray and pat dry. Massage the butter all over the chicken, add knors seasoning also rubbing under the skin, ranch, lemon pepper seasoning, olive oil, set aside. Cut potatoes in half, drizzle olive oil, salt, pepper, ranch and lemon pepper seasoning. Add potatoes to baking sheet with chicken and springs of thyme. Bake on 425F for 1 hour. In a small pot, Add butter, lemon pepper seasoning, lemon pepper and honey. After an hour remove chicken from oven and drizzle honey lemon butter all over the chicken and potatoes, serve.",
+          "number_of_likes": 100
+        }
+    },
+    {
+        "model": "SavorySketch_api.recipe",
+        "pk": 3,
+        "fields": {
+          "user": 2,
+          "cuisine": 1,
+          "title": "Buffalo Chicken Dip",
+          "description": "Spicy Chicken Dip!",
+          "image": "https://i0.wp.com/www.livewellbakeoften.com/wp-content/uploads/2014/09/Buffalo-Chicken-Dip_.jpg?w=745&ssl=1",
+          "publication_date": "2023-10-11",
+          "directions": "Preheat oven to 350°F (177°C). Spray an 8-inch square baking dish with nonstick cooking spray and set aside. In the bowl of a stand mixer fitted with the paddle attachment, or in a large mixing bowl using a handheld mixer, beat the cream cheese until smooth. Add the buffalo sauce and ranch dressing and continue mixing until fully combined, stopping to scrape down the sides of the bowl as needed. Stir in the mozzarella cheese and shredded chicken until fully combined.  Scoop the mixture into the prepared baking dish and spread it around into one even layer. Bake for 25 minutes or until the dip is warmed through and bubbling around the edges. Allow to cool slightly, then serve, and enjoy.",
+          "number_of_likes": 300
+        }
+    }
+]

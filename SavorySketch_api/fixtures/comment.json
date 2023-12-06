@@ -1,0 +1,42 @@
+[
+    {
+        "model": "SavorySketch_api.comment",
+        "pk": 1,
+        "fields": {
+            "recipe": 1,
+            "user": 1,
+            "content": "Kevin is stinky!",
+            "created_on": "2023-10-11"
+        }
+    },
+    {
+        "model": "SavorySketch_api.comment",
+        "pk": 2,
+        "fields": {
+            "recipe": 2,
+            "user": 1,
+            "content": "Recommended to the max!",
+            "created_on": "2023-10-11"
+        }
+    },
+    {
+        "model": "SavorySketch_api.comment",
+        "pk": 3,
+        "fields": {
+            "recipe": 2,
+            "user": 2,
+            "content": "OMG Its Soooooooo Good",
+            "created_on": "2023-10-11"
+        }
+    },
+    {
+        "model": "SavorySketch_api.comment",
+        "pk": 4,
+        "fields": {
+            "recipe": 3,
+            "user": 2,
+            "content": "Great Recipe!",
+            "created_on": "2023-10-11"
+        }
+    }
+]
