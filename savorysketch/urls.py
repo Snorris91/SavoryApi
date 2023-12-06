@@ -18,13 +18,14 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from rest_framework.routers import DefaultRouter
-from SavorySketch_api.views import UserViewSet, CuisineViewSet, IngredientViewSet, MeasurementViewSet
+from SavorySketch_api.views import UserViewSet, SavoryUserView, CuisineViewSet, IngredientViewSet, MeasurementViewSet
 
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'cuisines', CuisineViewSet, 'cuisine')
 router.register(r'ingredients', IngredientViewSet, 'ingredient')
 router.register(r'measurements', MeasurementViewSet, 'measurement')
+router.register(r'savoryusers', SavoryUserView, 'savoryuser')
 
 urlpatterns = [
     path('', include(router.urls)),

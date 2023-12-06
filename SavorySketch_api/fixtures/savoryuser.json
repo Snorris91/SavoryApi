@@ -1,0 +1,12 @@
+[
+    {
+      "model": "SavorySketch_api.savoryuser",
+      "pk": 1,
+      "fields": {
+        "user": 1,
+        "biography": "I'm an adventurous soul, exploring the wonders of life.",
+        "profile_img": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.YZjwdewwVkZVyNZq1kpJrAHaHa%26pid%3DApi&f=1&ipt=b9da69f55b6a5c87aa403bdd84ec19b6ba776e9ad855f579bd725cf0e1fe25c7&ipo=images",
+        "created_on": "2023-01-10"
+      }
+    }
+]
