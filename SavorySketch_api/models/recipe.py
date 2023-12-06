@@ -14,8 +14,3 @@ class Recipe(models.Model):
         through='RecipeIngredient',
         related_name="recipe"
     )
-    measurements = models.ManyToManyField(
-        "Measurement",
-        through="RecipeIngredient",
-        related_name="recipe"
-    )
