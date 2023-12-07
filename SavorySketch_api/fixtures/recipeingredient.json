@@ -1,0 +1,20 @@
+[
+  {
+    "model": "SavorySketch_api.recipeingredient",
+    "pk": 1,
+    "fields": {
+        "ingredient_id": 2,
+        "recipe_id": 2,
+        "measurement_id": 36
+    }
+  },
+  {
+    "model": "SavorySketch_api.recipeingredient",
+    "pk": 2,
+    "fields": {
+      "ingredient_id": 10,
+      "recipe_id": 2,
+      "measurement_id": 32
+    }
+  }
+]

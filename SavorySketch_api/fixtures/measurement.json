@@ -299,5 +299,54 @@
         "fields": {
             "name": "48 Oz"
         }
+    },
+    {
+        "model": "SavorySketch_api.measurement",
+        "pk": 44,
+        "fields": {
+            "name": "1/2 pound"
+        }
+    },
+    {
+        "model": "SavorySketch_api.measurement",
+        "pk": 45,
+        "fields": {
+            "name": "3/4 pound"
+        }
+    },
+    {
+        "model": "SavorySketch_api.measurement",
+        "pk": 46,
+        "fields": {
+            "name": "1 pound"
+        }
+    },
+    {
+        "model": "SavorySketch_api.measurement",
+        "pk": 47,
+        "fields": {
+            "name": "1 1/2 pound"
+        }
+    },
+    {
+        "model": "SavorySketch_api.measurement",
+        "pk": 48,
+        "fields": {
+            "name": "2 pounds"
+        }
+    },
+    {
+        "model": "SavorySketch_api.measurement",
+        "pk": 49,
+        "fields": {
+            "name": "3 pounds"
+        }
+    },
+    {
+        "model": "SavorySketch_api.measurement",
+        "pk": 50,
+        "fields": {
+            "name": "8"
+        }
     }
 ]

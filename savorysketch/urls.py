@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from rest_framework.routers import DefaultRouter
-from SavorySketch_api.views import UserViewSet, CommentView, RecipeView, SavoryUserView, CuisineViewSet, IngredientViewSet, MeasurementViewSet
+from SavorySketch_api.views import UserViewSet, RecipeIngredientView, CommentView, RecipeView, SavoryUserView, CuisineViewSet, IngredientViewSet, MeasurementViewSet
 
 
 router = routers.DefaultRouter(trailing_slash=False)
@@ -28,6 +28,8 @@ router.register(r'measurements', MeasurementViewSet, 'measurement')
 router.register(r'savoryusers', SavoryUserView, 'savoryuser')
 router.register(r'recipes', RecipeView, 'recipe')
 router.register(r'comments', CommentView, 'comment')
+router.register(r'recipeingredients', RecipeIngredientView, 'recipeingredient')
+
 urlpatterns = [
     path('', include(router.urls)),
     path('login', UserViewSet.as_view({'post': 'user_login'}), name='login'),
