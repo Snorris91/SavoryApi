@@ -3,7 +3,7 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework import serializers
 from rest_framework.authtoken.models import Token
-
+from SavorySketch_api.models import SavoryUser
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 
@@ -30,6 +30,7 @@ class UserViewSet(viewsets.ViewSet):
                 last_name=serializer.validated_data['last_name'],
                 email=serializer.validated_data['email']
             )
+            savory_user = SavoryUser.objects.create(user=user)
             token, created = Token.objects.get_or_create(user=user)
             return Response({"token": token.key}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

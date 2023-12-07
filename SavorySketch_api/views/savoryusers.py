@@ -13,6 +13,11 @@ class SavoryUserUserSerializer(serializers.ModelSerializer):
         model = User
         fields = ['username', 'full_name', 'email', 'date_joined']
         
+class UpdatedSavoryUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = SavoryUser
+        fields = ['id', 'profile_img', 'biography']
+        
 class SavoryUserSerializer(serializers.ModelSerializer):
     user = SavoryUserUserSerializer(many=False)
     profile_img = serializers.SerializerMethodField()
@@ -47,5 +52,19 @@ class SavoryUserView(ViewSet):
             savory_users = SavoryUser.objects.get(pk=pk)
             serializer = SavoryUserSerializer( savory_users, context={'request': request})
             return Response(serializer.data)
+        except SavoryUser.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+        
+    def update(self, request, pk=None):
+        try:
+            savory_user = SavoryUser.objects.get(pk=pk)
+            serializer = UpdatedSavoryUserSerializer(data=request.data)
+            if serializer.is_valid():
+                savory_user.profile_img = serializer.validated_data['profile_img']
+                savory_user.biography = serializer.validated_data['biography']
+                savory_user.save()
+                serializer = UpdatedSavoryUserSerializer(savory_user, context={'request': request})
+                return Response(None, status.HTTP_204_NO_CONTENT)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         except SavoryUser.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)

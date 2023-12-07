@@ -18,5 +18,15 @@
         "profile_img": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.sheknows.com%2Fwp-content%2Fuploads%2F2018%2F12%2Fbabies-eating-junk-food.jpeg%3Fw%3D1920&f=1&nofb=1&ipt=c57d0e4b27e682d3de2106d7d4d79b5d21f3407cc0555b79155091ee28163e54&ipo=images",
         "created_on": "2023-01-10"
       }
+    },
+    {
+      "model": "SavorySketch_api.savoryuser",
+      "pk": 3,
+      "fields": {
+        "user": 3,
+        "biography": "Happy Tree Friends",
+        "profile_img": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.sheknows.com%2Fwp-content%2Fuploads%2F2018%2F12%2Fbabies-eating-junk-food.jpeg%3Fw%3D1920&f=1&nofb=1&ipt=c57d0e4b27e682d3de2106d7d4d79b5d21f3407cc0555b79155091ee28163e54&ipo=images",
+        "created_on": "2023-01-10"
+      }
     }
 ]

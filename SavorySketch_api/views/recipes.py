@@ -53,3 +53,12 @@ class RecipeView(ViewSet):
         recipe = Recipe.objects.all()
         serializer = RecipeSerializer(recipe, many=True, context={'request': request})
         return Response(serializer.data)
+    
+    def destroy(self, request, pk=None):
+        try:
+            recipe = Recipe.objects.get(pk=pk)
+            self.check_object_permissions(request, recipe)
+            recipe.delete()
+            return Response(status=status.HTTP_204_NO_CONTENT)
+        except Recipe.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)

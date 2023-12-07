@@ -4,5 +4,5 @@ from django.contrib.auth.models import User
 class SavoryUser(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_account")
     biography = models.CharField(max_length=750)
-    profile_img = models.URLField(null=True, blank=True)
+    profile_img = models.URLField(max_length=1000, null=True, blank=True)
     created_on = models.DateField(auto_now=True)
