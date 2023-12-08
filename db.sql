@@ -1,0 +1,1 @@
+DELETE FROM SavorySketch_api_recipeingredient;

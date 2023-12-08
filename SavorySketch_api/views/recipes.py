@@ -62,3 +62,25 @@ class RecipeView(ViewSet):
             return Response(status=status.HTTP_204_NO_CONTENT)
         except Recipe.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
+        
+    def create(self, request):
+        user = SavoryUser.objects.get(pk=request.user.id)
+        cuisine = Cuisine.objects.get(pk=request.data['cuisine'])
+        recipe = Recipe.objects.create(
+            user=user,
+            cuisine=cuisine,
+            title=request.data.get('title'),
+            description=request.data.get('description'),
+            image=request.data.get('image'),
+            directions=request.data.get('directions')
+        )
+        
+        ingredient = request.data.get('ingredients', [])
+        measurement = request.data.get('measurements', [])
+        recipe.ingredients.set(ingredient, measurement)
+        
+        serializer = RecipeSerializer(recipe, context={'request': request})
+        try:
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        except Exception as ex:
+            return Response(None, status=status.HTTP_404_NOT_FOUND)
