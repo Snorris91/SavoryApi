@@ -12,10 +12,10 @@ class Recipe(models.Model):
     ingredients = models.ManyToManyField(
         "Ingredient",
         through='RecipeIngredient',
-        related_name="recipe"
+        related_name="recipe_ingredients"
     )
-    # measurements = models.ManyToManyField(
-    #     "Measurement",
-    #     through='RecipeIngredient',
-    #     related_name="recipe"
-    # )
+    measurements = models.ManyToManyField(
+        "Measurement",
+        through='RecipeIngredient',
+        related_name="recipe_measurements"
+    )
