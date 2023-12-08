@@ -75,9 +75,16 @@ class RecipeView(ViewSet):
             directions=request.data.get('directions')
         )
         
-        ingredient = request.data.get('ingredients', [])
-        measurement = request.data.get('measurements', [])
-        recipe.ingredients.set(ingredient, measurement)
+        ingredients = request.data.get('ingredients', [])
+        measurements = request.data.get('measurements', [])
+        for ingredient_id, measurement_id in zip(ingredients, measurements):
+            ingredient_instance = Ingredient.objects.get(pk=ingredient_id)
+            measurement_instance = Measurement.objects.get(pk=measurement_id)
+            RecipeIngredient.objects.create(
+                recipe=recipe,
+                ingredient=ingredient_instance,
+                measurement=measurement_instance
+            )
         
         serializer = RecipeSerializer(recipe, context={'request': request})
         try:
