@@ -32,7 +32,15 @@ class UserViewSet(viewsets.ViewSet):
             )
             savory_user = SavoryUser.objects.create(user=user)
             token, created = Token.objects.get_or_create(user=user)
-            return Response({"token": token.key}, status=status.HTTP_201_CREATED)
+            data = {
+                'valid': True,
+                'token': token.key,
+                'user_id': user.id,
+                'savoryuser_id': savory_user.id
+            }
+            
+            # return Response({"token": token.key}, status=status.HTTP_201_CREATED)
+            return Response(data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     @action(detail=False, methods=['post'], url_path='login')
@@ -42,8 +50,14 @@ class UserViewSet(viewsets.ViewSet):
 
         user = authenticate(username=username, password=password)
 
+
         if user:
             token = Token.objects.get(user=user)
-            return Response({'token': token.key}, status=status.HTTP_200_OK)
+            data = {
+            'valid': True,
+            'token': token.key,
+            'user_id': user.id,
+            }
+            return Response(data, status=status.HTTP_200_OK)
         else:
             return Response({'error': 'Invalid Credentials'}, status=status.HTTP_400_BAD_REQUEST)

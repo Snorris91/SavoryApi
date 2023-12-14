@@ -10,7 +10,7 @@ from SavorySketch_api.views import IngredientSerializer, MeasurementSerializer
 class RecipeCuisineSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cuisine
-        fields = ['name']
+        fields = ['id','name']
         
 class RecipeIngredientMeasurementSerializer(serializers.ModelSerializer):
     ingredient = IngredientSerializer(many=False)
