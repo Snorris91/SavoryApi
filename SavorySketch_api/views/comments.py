@@ -31,8 +31,20 @@ class CommentView(ViewSet):
             return Response(status=status.HTTP_404_NOT_FOUND)
     
     def list(self, request):
-        comment = Comment.objects.all()
-        serializer = CommentSerializer(comment, many=True, context={'request': request})
+        user_id = request.query_params.get('userId')
+        recipe_id = request.query_params.get('recipeId')
+
+        if user_id:
+            # Retrieve comments by userId
+            comments = Comment.objects.filter(user_id=user_id)
+        elif recipe_id:
+            # Retrieve comments by recipeId
+            comments = Comment.objects.filter(recipe_id=recipe_id)
+        else:
+            # Default behavior: list all comments
+            comments = Comment.objects.all()
+
+        serializer = CommentSerializer(comments, many=True, context={'request': request})
         return Response(serializer.data)
     
     def delete(self, request, pk):
