@@ -25,6 +25,11 @@ class RecipeSavoryUserSerializer(serializers.ModelSerializer):
         model = User
         fields = ['id', 'user']
     
+class UpdatedRecipeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Recipe
+        fields = ['id', 'number_of_likes']
+    
 
 class RecipeSerializer(serializers.ModelSerializer):
     user = RecipeSavoryUserSerializer(many=False)
@@ -91,3 +96,17 @@ class RecipeView(ViewSet):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         except Exception as ex:
             return Response(None, status=status.HTTP_404_NOT_FOUND)
+        
+    def update(self, request, pk=None):
+        try:
+            recipe = Recipe.objects.get(pk=pk)
+            serializer = UpdatedRecipeSerializer(data=request.data)
+            if serializer.is_valid():
+                recipe.number_of_likes = serializer.validated_data['number_of_likes']
+                recipe.save()
+                serializer = UpdatedRecipeSerializer(recipe, context={'request': request})
+                return Response(None, status.HTTP_204_NO_CONTENT)
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+        except Recipe.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
