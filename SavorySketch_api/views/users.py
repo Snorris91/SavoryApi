@@ -30,7 +30,11 @@ class UserViewSet(viewsets.ViewSet):
                 last_name=serializer.validated_data['last_name'],
                 email=serializer.validated_data['email']
             )
-            savory_user = SavoryUser.objects.create(user=user)
+            savory_user = SavoryUser.objects.create(
+                user=user,
+                biography=request.data.get('biography'),
+                profile_img=request.data.get('profile_img'),
+                )
             token, created = Token.objects.get_or_create(user=user)
             data = {
                 'valid': True,
@@ -53,10 +57,12 @@ class UserViewSet(viewsets.ViewSet):
 
         if user:
             token = Token.objects.get(user=user)
+            savory_user = SavoryUser.objects.get(user=user)
             data = {
             'valid': True,
             'token': token.key,
             'user_id': user.id,
+            'savoryuser_id': savory_user.id
             }
             return Response(data, status=status.HTTP_200_OK)
         else:
